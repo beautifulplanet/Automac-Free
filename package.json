@@ -1,0 +1,61 @@
+{
+  "name": "automac-free",
+  "displayName": "Automac Free",
+  "description": "Free AI-powered PC diagnostics - read-only system analysis and advice",
+  "version": "0.2.0",
+  "publisher": "beautifulplanet",
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beautifulplanet/Automac-Free"
+  },
+  "keywords": ["diagnostics", "system", "powershell", "ai", "tools"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:automacfree.openHelpdesk", "onStartupFinished"],
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "bundle": "node esbuild.config.js",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "esbuild": "^0.19.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "automacfree.openHelpdesk",
+        "title": "Open Diagnostics",
+        "category": "Automac Free"
+      }
+    ],
+    "configuration": {
+      "title": "Automac Free",
+      "properties": {
+        "automacfree.privacy.scrubToolOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scrub personal information from tool output before sending to AI"
+        },
+        "automacfree.openOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open diagnostics panel when VS Code starts"
+        },
+        "automacfree.devMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use VS Code native theme colors instead of the Automac custom theme"
+        }
+      }
+    }
+  }
+}

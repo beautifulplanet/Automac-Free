@@ -1,0 +1,8 @@
+node_modules/
+out/
+*.vsix
+.vscode/
+planning/
+AGENTS.md
+LESSONS.md
+SESSION.md

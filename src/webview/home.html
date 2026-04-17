@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'none'; style-src {{CSP_SOURCE}} 'nonce-{{NONCE}}'; script-src 'nonce-{{NONCE}}'; font-src {{CSP_SOURCE}}; img-src {{CSP_SOURCE}};">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{STYLE_URI}}">
+  <title>Automac Free</title>
+</head>
+<body data-dev-mode="{{DEV_MODE}}">
+
+  <!-- WELCOME OVERLAY (first run only) -->
+  <div id="welcome-overlay" style="display:none;">
+    <div class="welcome-card">
+      <div class="welcome-icon">🔧</div>
+      <h1>Welcome to Automac Free</h1>
+      <p>Your free AI-powered PC diagnostic assistant. Click a problem card or describe your issue — Automac will scan your system and explain what's happening in plain language.</p>
+      <ul class="welcome-features">
+        <li>13 diagnostic tools — all read-only, nothing is changed</li>
+        <li>AI analysis powered by your VS Code Copilot subscription</li>
+        <li>Personal data is automatically scrubbed before AI sees it</li>
+      </ul>
+      <button id="welcome-dismiss">Get Started</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 1: HOME -->
+  <div id="home-screen">
+    <div class="hero">
+      <h1>Automac Free</h1>
+      <p class="subtitle">Tell me what's wrong with your PC</p>
+    </div>
+    <div class="card-grid">
+      <button class="card" data-card="My computer is slow">
+        <span class="card-icon">🐌</span>
+        <span class="card-label">My computer is slow</span>
+        <span class="card-desc">Check CPU, RAM, and running processes</span>
+      </button>
+      <button class="card" data-card="What is this process?">
+        <span class="card-icon">⚙️</span>
+        <span class="card-label">What is this process?</span>
+        <span class="card-desc">Identify and explain any running program</span>
+      </button>
+      <button class="card" data-card="Running out of disk space">
+        <span class="card-icon">💾</span>
+        <span class="card-label">Running out of disk space</span>
+        <span class="card-desc">Find large files and temp junk</span>
+      </button>
+      <button class="card" data-card="Slow to boot">
+        <span class="card-icon">🐢</span>
+        <span class="card-label">Slow to boot</span>
+        <span class="card-desc">Scan startup programs</span>
+      </button>
+      <button class="card" data-card="Something keeps crashing">
+        <span class="card-icon">💥</span>
+        <span class="card-label">Something keeps crashing</span>
+        <span class="card-desc">Check event logs for errors</span>
+      </button>
+      <button class="card" data-card="Windows Update issues">
+        <span class="card-icon">🔄</span>
+        <span class="card-label">Windows Update issues</span>
+        <span class="card-desc">Check update status and history</span>
+      </button>
+      <button class="card" data-card="Network problems">
+        <span class="card-icon">🌐</span>
+        <span class="card-label">Network problems</span>
+        <span class="card-desc">Test connectivity and DNS</span>
+      </button>
+      <button class="card" data-card="Something is wrong but I'm not sure what">
+        <span class="card-icon">❓</span>
+        <span class="card-label">Something is wrong</span>
+        <span class="card-desc">Full system health check</span>
+      </button>
+    </div>
+    <div class="custom-input">
+      <input type="text" id="custom-question" placeholder="Or describe your problem...">
+      <button id="custom-submit">Ask</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: CHAT -->
+  <div id="chat-screen" style="display:none;">
+    <div class="chat-header">
+      <button id="back-btn">← Back</button>
+      <span id="chat-title"></span>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="thinking-indicator" style="display:none;">
+      <div class="thinking-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="thinking-label">Analyzing your system...</span>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chat-question" placeholder="Ask a follow-up question...">
+      <button id="chat-submit">Send</button>
+    </div>
+  </div>
+
+  <script nonce="{{NONCE}}" src="{{SCRIPT_URI}}"></script>
+</body>
+</html>

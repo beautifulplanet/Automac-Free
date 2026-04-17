@@ -1,0 +1,13 @@
+.vscode/**
+src/**/*.ts
+node_modules/**
+*.ts
+!src/webview/home.html
+!src/webview/home.css
+!src/webview/home.js
+tsconfig.json
+esbuild.config.js
+planning/**
+AGENTS.md
+LESSONS.md
+SESSION.md
