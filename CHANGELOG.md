@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0] - 2026-04-18
+
+### Added
+- Sidebar icon — Automac Free now has its own icon in the VS Code activity bar
+- Clicking the sidebar icon opens the diagnostics panel directly
+- CLIXML error parsing — PowerShell errors now show clean messages instead of raw XML
+
+## [0.2.2] - 2026-04-17
+
+### Changed
+- Updated README with Automac IT comparison table and upgrade info
+- Updated marketplace description
+
 ## [0.2.0] - 2026-04-16
 
 ### Added

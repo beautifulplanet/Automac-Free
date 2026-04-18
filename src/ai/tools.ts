@@ -30,7 +30,17 @@ function runPS(command: string): Promise<string> {
       { timeout: 30_000, maxBuffer: 1024 * 1024 },
       (error, stdout, stderr) => {
         if (error) {
-          resolve(`Error: ${stderr.trim() || error.message}`);
+          // PowerShell stderr is sometimes CLIXML-encoded — extract the plain text
+          let msg = stderr.trim() || error.message;
+          if (msg.includes('CLIXML')) {
+            const textMatch = msg.match(/<S[^>]*>([^<]+)<\/S>/g);
+            if (textMatch) {
+              msg = textMatch.map(s => s.replace(/<\/?S[^>]*>/g, '')).join(' ').replace(/_x000D__x000A_/g, ' ').trim();
+            } else {
+              msg = msg.replace(/<[^>]+>/g, '').replace(/#<\s*CLIXML\s*/, '').replace(/_x000D__x000A_/g, ' ').trim() || error.message;
+            }
+          }
+          resolve(`Error: ${msg}`);
           return;
         }
         resolve(stdout);

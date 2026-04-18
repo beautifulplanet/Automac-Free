@@ -1,8 +1,8 @@
 {
   "name": "automac-free",
   "displayName": "Automac Free",
-  "description": "Free AI-powered PC diagnostics - read-only system analysis and advice",
-  "version": "0.2.0",
+  "description": "Free AI PC doctor — diagnose Windows problems in plain English. Upgrade to Automac IT for automated fixes.",
+  "version": "0.3.0",
   "publisher": "beautifulplanet",
   "license": "MIT",
   "icon": "icon.png",
@@ -15,7 +15,7 @@
     "vscode": "^1.85.0"
   },
   "categories": ["Other"],
-  "activationEvents": ["onCommand:automacfree.openHelpdesk", "onStartupFinished"],
+  "activationEvents": ["onCommand:automacfree.openHelpdesk", "onView:automacfree.launcher", "onStartupFinished"],
   "main": "./out/extension.js",
   "scripts": {
     "compile": "tsc -p ./",
@@ -30,6 +30,24 @@
     "esbuild": "^0.19.0"
   },
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "automacfree-sidebar",
+          "title": "Automac Free",
+          "icon": "media/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "automacfree-sidebar": [
+        {
+          "id": "automacfree.launcher",
+          "name": "Diagnostics",
+          "type": "webview"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "automacfree.openHelpdesk",
