@@ -528,3 +528,43 @@ body {
 #chat-messages::-webkit-scrollbar-thumb:hover {
   background: var(--am-text-dim);
 }
+
+/* ========== HOME FOOTER ========== */
+
+.home-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0 8px;
+  flex-wrap: wrap;
+}
+
+.home-footer .btn-link {
+  background: none;
+  border: none;
+  color: var(--am-text-dim);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+.home-footer .btn-link:hover {
+  color: var(--am-text);
+}
+
+.home-footer .btn-buy {
+  background: var(--am-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.home-footer .btn-buy:hover {
+  background: var(--am-accent-hover);
+}

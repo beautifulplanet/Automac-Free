@@ -103,6 +103,14 @@
     chatScreen.style.display = 'none';
   });
 
+  // Footer buttons
+  document.getElementById('btn-website')?.addEventListener('click', function () {
+    vscode.postMessage({ type: 'openWebsite' });
+  });
+  document.getElementById('btn-buy')?.addEventListener('click', function () {
+    vscode.postMessage({ type: 'buyAutomac' });
+  });
+
   // ========== INBOUND MESSAGES (extension -> webview) ==========
   window.addEventListener('message', function (event) {
     var msg = event.data;

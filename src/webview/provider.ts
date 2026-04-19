@@ -70,6 +70,12 @@ async function setupWebview(
           await shell.handleUserMessage(message.text);
         }
         break;
+      case 'openWebsite':
+        void vscode.env.openExternal(vscode.Uri.parse('https://automac-it.pages.dev'));
+        break;
+      case 'buyAutomac':
+        void vscode.env.openExternal(vscode.Uri.parse('https://buy.stripe.com/14AcMY18K6Ow86vgE19oc00'));
+        break;
       default:
         break;
     }
