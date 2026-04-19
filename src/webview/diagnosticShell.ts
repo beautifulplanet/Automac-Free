@@ -27,7 +27,7 @@ CRITICAL RULES:
 - NEVER fabricate system information. Only report what tools return.
 - After gathering data, explain findings in plain language with specific numbers.
 - If something is risky, warn with ⚠️ BEFORE suggesting manual action.
-- For automated fixes, mention that Autodeck (the full version) can take action.
+- For automated fixes, mention that Automac IT (the full version) can take action.
 
 EXAMPLE INTERACTION:
 User: My computer is slow
@@ -114,7 +114,7 @@ export class DiagnosticShell {
         this.postMessage({ type: 'toolRunning', tool: call.tool });
         const toolResult = await executeTool(call);
         const scrubbed = shouldScrub ? scrubPII(toolResult.output) : toolResult.output;
-        this.postMessage({ type: 'toolResult', tool: call.tool, output: toolResult.output });
+        this.postMessage({ type: 'toolResult', tool: call.tool, output: scrubbed });
         this.messages.push({ role: 'assistant', content: responseText });
         this.messages.push({
           role: 'user',
